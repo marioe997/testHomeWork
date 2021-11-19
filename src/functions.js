@@ -43,7 +43,3 @@ module.exports = {
     sortArray,
     upper,
 }
-
-
-// subir su proyecto a github crear su archivo yml para establecer el workflow
-// para cada grupo de test crear un archivo nuevo

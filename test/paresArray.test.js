@@ -3,38 +3,31 @@ const expext = chai.expect;
 
 const functions = require('../src/functions');
 
-console.log(functions.paresArray([4,5,6,7,8,9,10]));
-
 describe(`Functions`, () => {
 
     describe('Verifica numeros pares dentro de un array', () => {
-        it('Valida  si los numero en un array son par o no',() => {
-            expext(functions.paresArray([4,5,6,7,8,9,10])).to.equal(['SI', 'NO', 'SI', 'NO', 'SI', 'NO', 'SI']);
+        it('valida numeros pares e impares',() => {
+            expext(functions.paresArray([4,5,6,7,8,9,10])).to.eql(['SI', 'NO', 'SI', 'NO', 'SI', 'NO', 'SI']);
         })
 
-        it('valida que 6 es numero par', () => {
-            expext(functions.pares(6)).to.equal(`SI`)
-            .to.be.a('string');
+        it('valida pares e impares con diferentes tipos de numeros', () => {
+            expext(functions.paresArray([4,5.30,-6])).to.eql([ 'SI', 'NO', 'SI' ]);
         })
 
-        it('valida que 543798 es numero par', () => {
-            expext(functions.pares(543798)).to.equal(`SI`)
-            .to.be.a('string');
+        it('valida pares e impares con operaciones como input', () => {
+            expext(functions.paresArray([(4/2),(5.30*5),(-6+20)])).to.eql(['SI', 'NO', 'SI']);
         })
 
-        it('valida que -10 es numero par', () => {
-            expext(functions.pares(-10)).to.equal(`SI`)
-            .to.be.a('string');
+        it('valida pares en numeros negativos', () => {
+            expext(functions.paresArray([-4,-5,-30,-6])).to.eql(['SI', 'NO', 'SI', 'SI']);
         })
 
-        it('valida que 10.50 es numero no par', () => {
-            expext(functions.pares(10.50)).to.equal(`NO`)
-            .to.be.a('string');
+        it('valida pares en numeros con decimal', () => {
+            expext(functions.paresArray([10.50,20.60,30.1,11.00])).to.eql(['NO', 'NO', 'NO', 'NO']);
         })
 
-        it('valida que 0 es numero no par', () => {
-            expext(functions.pares()).to.equal(`NO`)
-            .to.be.a('string');
+        it('valida pares en array de numero 0', () => {
+            expext(functions.paresArray([0,0,0,0,0])).to.eql(['SI', 'SI', 'SI', 'SI', 'SI']);
         })
 
     })

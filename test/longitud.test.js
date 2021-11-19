@@ -21,8 +21,8 @@ describe(`Functions`, () => {
             .to.be.a('number');
         })
 
-        it('cuenta cuantas letras tienen la palabra Paracetamol', () => {
-            expext(functions.longitud("Paracetamol")).to.equal(11)
+        it('cuenta cuantas letras tienen un espacio vacio', () => {
+            expext(functions.longitud("")).to.equal(0)
             .to.be.a('number');
         })
 

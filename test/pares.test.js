@@ -3,8 +3,6 @@ const expext = chai.expect;
 
 const functions = require('../src/functions');
 
-console.log(functions.paresArray([4,5,6,7,8,9,10]));
-
 
 describe(`Functions`, () => {
 
@@ -19,8 +17,8 @@ describe(`Functions`, () => {
             .to.be.a('string');
         })
 
-        it('valida que 543798 es numero par', () => {
-            expext(functions.pares(543798)).to.equal(`SI`)
+        it('valida que una operacion es numero par o inpar', () => {
+            expext(functions.pares((543798*35)/19)).to.equal(`NO`)
             .to.be.a('string');
         })
 
@@ -35,7 +33,7 @@ describe(`Functions`, () => {
         })
 
         it('valida que 0 es numero no par', () => {
-            expext(functions.pares()).to.equal(`NO`)
+            expext(functions.pares(0)).to.equal(`SI`)
             .to.be.a('string');
         })
 
